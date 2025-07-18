@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seoul Sip Café - Virtual Korean Café</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+</head>
+
+<body class="light">
+  <div id="start-overlay" class="start-overlay">
+    <div class="start-content">
+      <h2>Welcome to Seoul Sip Café</h2>
+      <button id="startCafeBtn">Start Café</button>
+      <p style="font-size:0.95em;color:#888;margin-top:10px;">Click to enable sound and enter the café</p>
+    </div>
+  </div>
+  
+  <div class="branding">
+    <img id="logo" src="images/icons/3.png" alt="Seoul Sip Café Logo">
+    <h1>Seoul Sip Café</h1>
+  </div>
+
+  
+  <div class="overlay">
+    
+    <div class="container">
+      <p>Relax. Sip. Breathe. Feel the Korean café vibe.</p>
+      <div class="top-controls">
+        <label>
+          <input type="checkbox" id="panToggleCheckbox">
+          <i class="fa-solid fa-sliders"></i> Show Pan Controls
+        </label>
+        <button id="defaultButton" title="Reset to Defaults"><i class="fa-solid fa-rotate-left"></i></button>
+        <button id="muteAllButton" title="Mute All"><i class="fa-solid fa-volume-xmark"></i></button>
+      </div>
+      
+
+      <div class="sound-controls">
+        <div class="sound-category-title">Environment</div>
+        <hr class="sound-category-separator">
+        <div class="sound" data-sound="rain">
+          <span class="sound-text">Rain</span>
+          <i class="fa-solid fa-cloud-rain" title="Rainy Day"></i>
+          <input type="range" id="rainSlider" min="0" max="1" step="0.01">
+          
+          <div class="pan-row" style="display:none;">
+            <span class="pan-label">L</span>
+            <input type="range" class="pan-slider" id="rainPan" min="-1" max="1" step="0.01" title="Pan (L/R)">
+            <span class="pan-label">R</span>
+          </div>
+        </div>
+        <div class="sound" data-sound="sunny">
+          <span class="sound-text">Sunny</span>
+          <i class="fa-solid fa-sun" title="Sunny Day"></i>
+          <input type="range" id="sunnySlider" min="0" max="1" step="0.01">
+          
+          <div class="pan-row" style="display:none;">
+            <span class="pan-label">L</span>
+            <input type="range" class="pan-slider" id="sunnyPan" min="-1" max="1" step="0.01" title="Pan (L/R)">
+            <span class="pan-label">R</span>
+          </div>
+        </div>
+        <div class="sound" data-sound="fireplace">
+          <span class="sound-text">Fireplace</span>
+          <i class="fa-solid fa-fire" title="Fireplace"></i>
+          <input type="range" id="fireplaceSlider" min="0" max="1" step="0.01">
+          
+          <div class="pan-row" style="display:none;">
+            <span class="pan-label">L</span>
+            <input type="range" class="pan-slider" id="fireplacePan" min="-1" max="1" step="0.01" title="Pan (L/R)">
+            <span class="pan-label">R</span>
+          </div>
+        </div>
+        <div class="sound-category-title">Interior</div>
+        <hr class="sound-category-separator">
+          <div class="sound-group">
+         
+            <div class="sound" data-sound="cafe">
+              <span class="sound-text">Other Customers</span>
+              <i class="fa-solid fa-users" title="Other Customers"></i>
+              <input type="range" id="cafeSlider" min="0" max="1" step="0.01">
+              
+              <div class="pan-row" style="display:none;">
+                <span class="pan-label">L</span>
+                <input type="range" class="pan-slider" id="cafePan" min="-1" max="1" step="0.01" title="Pan (L/R)">
+                <span class="pan-label">R</span>
+              </div>
+            </div>
+            <div class="sound" data-sound="cups">
+              <span class="sound-text">Coffee Cups</span>
+              <i class="fa-solid fa-mug-hot" title="Coffee Cups"></i>
+              <input type="range" id="cupsSlider" min="0" max="1" step="0.01">
+              
+              <div class="pan-row" style="display:none;">
+                <span class="pan-label">L</span>
+                <input type="range" class="pan-slider" id="cupsPan" min="-1" max="1" step="0.01" title="Pan (L/R)">
+                <span class="pan-label">R</span>
+              </div>
+            </div>
+            <div class="sound" data-sound="machinery">
+              <span class="sound-text">Machinery</span>
+              <i class="fa-solid fa-gears" title="Machinery"></i>
+              <input type="range" id="machinerySlider" min="0" max="1" step="0.01">
+              
+              <div class="pan-row" style="display:none;">
+                <span class="pan-label">L</span>
+                <input type="range" class="pan-slider" id="machineryPan" min="-1" max="1" step="0.01" title="Pan (L/R)">
+                <span class="pan-label">R</span>
+              </div>
+            </div>
+          </div>
+        <div class="sound-category-title">Background Music</div>
+        <hr class="sound-category-separator">
+        <div class="sound-group">
+          <div class="sound" data-sound="music">
+            <span class="sound-text">Music</span>
+            <input type="range" id="musicSlider" min="0" max="1" step="0.01">
+            <div class="pan-row" style="display:none;">
+              <span class="pan-label">L</span>
+              <input type="range" class="pan-slider" id="musicPan" min="-1" max="1" step="0.01" title="Pan (L/R)">
+              <span class="pan-label">R</span>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    <div class="bottom-left-group">
+      <div id="spotify-player" class="spotify-card">
+        <div class="spotify-iframe-wrapper">
+          <iframe id="spotify-iframe" style="border-radius:12px"
+            src="https://open.spotify.com/embed/playlist/37i9dQZF1DWVFeEut75IAL?utm_source=generator"
+            width="300" height="80" frameBorder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+          <div id="spotify-loading" class="spotify-loading" style="display:none;"><div class="spinner"></div></div>
+        </div>
+  
+        <div id="spotify-customize" class="spotify-customize">
+          <input type="text" id="spotifyInput" placeholder="Paste Spotify playlist link">
+          <button id="spotifyBtn" title="Load Playlist"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <button id="spotifyClearBtn" title="Clear Playlist"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+      <a href="https://ko-fi.com/sara217025" target="_blank" id="kofiBtn" title="Support me on Ko-fi">
+        <img src="https://storage.ko-fi.com/cdn/cup-border.png" alt="Ko-fi logo" />
+        <span class="kofi-label">Buy me a coffee</span>
+      </a>
+      
+      
+    </div>
+  </div>
+
+  <div class="top-right-controls">
+    <button class="circle-btn" id="infoBtn" title="About & Bug Report"><i class="fa-solid fa-circle-info"></i></button>
+    <button class="circle-btn" id="themeBtn" title="Light/Dark Mode"><i class="fa-solid fa-moon"></i></button>
+    <button class="circle-btn" id="todoBtn" title="To-Do List"><i class="fa-solid fa-list-check"></i></button>
+    <button class="circle-btn" id="focusModeBtn" title="Focus Mode"><i class="fa-solid fa-eye-slash"></i></button>
+  </div>
+
+  <!-- Info/About Modal -->
+  <div id="infoModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" id="closeInfo">&times;</span>
+      <h2>About</h2>
+      <p>This virtual café is a personal project inspired by the ambiance and productivity of real Korean cafés. It is designed to help you relax, focus, and enjoy a cozy virtual environment with customizable sounds and music.</p>
+      <h3>Privacy Policy</h3>
+      <p>Your privacy is important. This website does not collect personal data or track you. All your settings and to-do lists are stored locally in your browser and never sent to any server.</p>
+      <h3>Thanks & References</h3>
+      <ul>
+        <li>Inspired by <a href="https://imissmycafe.com/" target="_blank">imissmycafe.com</a></li>
+        <li>Inspired by <a href="https://flocus.com/virtual-cafe/" target="_blank">flocus.com/virtual-cafe/</a></li>
+      </ul>
+      <div class="thanks-credits">
+        <h4 style="margin-top:1em; color:var(--color-accent2);">Photo Credits</h4>
+        <ul style="font-size:0.97em;">
+          <li>Photo by <a href="https://unsplash.com/@pinchebesu?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank">Ruben Ramirez</a> on <a href="https://unsplash.com/photos/brown-wooden-table-and-chairs-xhKG01FN2uk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank">Unsplash</a></li>
+          <li>Photo by <a href="https://unsplash.com/@jonasjacobsson?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank">Jonas Jacobsson</a> on <a href="https://unsplash.com/photos/empty-brown-wooden-restaurant-table-with-chairs-1iTKoFJvJ6E?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank">Unsplash</a></li>
+        </ul>
+        <h4 style="margin-top:1em; color:var(--color-accent2);">Sound Credits</h4>
+        <ul style="font-size:0.97em;">
+          <li>Sound Effect by <a href="https://pixabay.com/users/nils_vega-16222851/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=365610" target="_blank">Nils Vega</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=365610" target="_blank">Pixabay</a></li>
+          <li>Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=54490" target="_blank">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=54490" target="_blank">Pixabay</a></li>
+          <li>Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6307" target="_blank">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=6307" target="_blank">Pixabay</a></li>
+          <li>Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=90784" target="_blank">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=90784" target="_blank">Pixabay</a></li>
+          <li>Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=52779" target="_blank">freesound_community</a> from <a href="https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=52779" target="_blank">Pixabay</a></li>
+          <li>Sound Effect by <a href="https://pixabay.com/users/freesound_community-46691455/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=32940" target="_blank">freesound_community</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=32940" target="_blank">Pixabay</a></li>
+          <li>Sound Effect by <a href="https://pixabay.com/users/idoberg-34953295/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=245859" target="_blank">ido berg</a> from <a href="https://pixabay.com/sound-effects//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=245859" target="_blank">Pixabay</a></li>
+        </ul>
+      </div>
+      <h3>Bug Reports</h3>
+      <p>If you find a bug, please <a href="mailto:your@email.com?subject=Bug%20Report%20-%20Virtual%20Korean%20Cafe">email us</a>.</p>
+    </div>
+  </div>
+
+  <!-- To-Do Modal -->
+  <div id="todoModal" class="modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" id="closeTodo">&times;</span>
+      <h2>To-Do List</h2>
+      <div id="todoWidget">
+        <input type="text" id="todoInput" placeholder="Add a new task...">
+        <button id="addTodo">Add</button>
+        <ul id="todoList"></ul>
+      </div>
+    </div>
+  </div>
+
+ 
+
+
+  <script src="https://sdk.scdn.co/spotify-player.js"></script>
+  <script src="script.js"></script>
+</body>
+</html> 
+
+
+
+
+
+
+
