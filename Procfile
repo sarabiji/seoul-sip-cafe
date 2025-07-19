@@ -1,1 +1,1 @@
-web: python google_proxy.py
+web: gunicorn google_proxy:app

@@ -386,7 +386,7 @@ const overlay = document.querySelector('.overlay');
 // Translation Toggle
 let isKorean = false;
 let originalTextNodes = [];
-const TRANSLATE_API = "http://localhost:3001/translate";
+const TRANSLATE_API = "https://seoul-sip-cafe.onrender.com/translate";
 
 function getAllVisibleTextNodes(root = document.body) {
   const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
