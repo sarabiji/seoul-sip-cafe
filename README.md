@@ -8,19 +8,19 @@
 
 ---
 
-## 🌐 **Live Website**
+## **Live Website**
 - **Frontend (Vercel):** [https://seoul-sip-cafe.vercel.app/](https://seoul-sip-cafe.vercel.app/)  
 
 ---
 
-## 📸 **Preview**
+## **Preview**
 > Add screenshots or GIFs of your café interface here.  
 Example:
 ![Seoul Sip Café Screenshot](images/preview.png)
 
 ---
 
-## 📝 **About the Project**
+## **About the Project**
 **Seoul Sip Café** brings the **vibe of a cozy Korean café** right into your browser.  
 Key highlights:
 - Customizable **ambient sounds** (rain, chatter, cups, music).
@@ -30,7 +30,7 @@ Key highlights:
 
 ---
 
-## 🛠 **Tech Stack**
+## **Tech Stack**
 - **Frontend:** HTML, CSS, JavaScript  
 - **Backend:** Python (Flask) with [Deep Translator](https://pypi.org/project/deep-translator/)  
 - **Hosting:**  
